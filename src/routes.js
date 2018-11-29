@@ -1,40 +1,31 @@
 import React from 'react';
-import ReactDOM from 'react-dom';
-import { BrowserRouter as Router, Route, Link } from "react-router-dom";
+import { Route } from "react-router-dom";
 import { connect } from 'react-redux';
 
 import Header from './components/Header/Header.js';
-import Page from './components/Page/Page.js';
-import UserProfile from './components/UserProfile/UserProfile';
-import jobInfo from './components/JobInfo/JobInfo.js';
-import Addjob from './components/AddJob/AddJob.js';
-import Login from './components/Login/Login.js';
-import Registration from './components/Registration/Registration.js';
-import editJob from './components/EditJob/EditJob.js';
-import Footer from './components/Footer/footer.js';
+import HomePage from './pages/HomePage/HomePage.js';
+import JobListPage from './pages/JobListPage/JobListPage.js'
+import UserPage from './pages/UserPage/UserPage.js';
+import RegistrationPage from './pages/RegistrationPage/RegistrationPage.js';
+import Footer from './components/Footer/Footer.js';
 
 const Layout = ({ match }) => {
-
-	return(
-	<div className="layout">
-		<Header />
-		<Route path={`${match.url}/`} component={Page} />
-		<Route path={`${match.url}UserProfile`} component={UserProfile} />
-		<Route path={`${match.url}jobInfo`} component={jobInfo} />
-		<Route path={`${match.url}Addjob`} component={Addjob} />
-		<Route path={`${match.url}editJob`} component={editJob} />
-		<Route path={`${match.url}login`} component={Login} />
-		<Route path={`${match.url}registration`} component={Registration} />
-		<Footer/>
-	</div>
-);
-
+    return (
+        <div className="layout">
+            <Header />
+            <Route path={`${match.url}/`} component={HomePage} />
+            <Route path={`${match.url}UserPage`} component={UserPage} />
+            <Route path={`${match.url}JobListPage}`} component={JobListPage} />
+            <Route path={`${match.url}RegistrationPage`} component={RegistrationPage} />
+            <Footer />
+        </div>
+    );
 }
 
 const mapStateToProps = (state) => {
-	return {
-		CurUser: state.user
-	}
+    return {
+        curUser: state.user
+    }
 }
 
 export default connect(mapStateToProps, null)(Layout);
