@@ -1,26 +1,13 @@
-import * as firebase from 'firebase';
+import firebase from "firebase";
 
-const config = {
-    apiKey: "AIzaSyB1kcURclpPVLCp9SA5yDa_6GF01L_2mG8",
-    authDomain: "and-job-for-all.firebaseapp.com",
-    databaseURL: "https://and-job-for-all.firebaseio.com",
-    projectId: "and-job-for-all",
-    storageBucket: "and-job-for-all.appspot.com",
-    messagingSenderId: "515341851666"
+var config = {
+    apiKey: "AIzaSyAgb8UXMbwTuMtB0PLcnl1r_pYq3lIs9E0",
+    authDomain: "fel8-4d3d1.firebaseapp.com",
+    databaseURL: "https://fel8-4d3d1.firebaseio.com",
+    projectId: "fel8-4d3d1",
+    storageBucket: "fel8-4d3d1.appspot.com",
+    messagingSenderId: "595191190122"
 };
 
 firebase.initializeApp(config);
-const firebaseDB = firebase.database();
-const firebaseUsers = firebaseDB.ref('users');
-export const firebaseTrueUsers = firebaseDB.ref('usersT');
-export const firebaseJobs = firebaseDB.ref('jobList');
-export const firebaseJobsArchive = firebaseDB.ref('jobArchive');
-
-export default {
-    firebase,
-    firebaseDB,
-    firebaseUsers,
-    firebaseJobs,
-    firebaseTrueUsers,
-    firebaseJobsArchive
-}
+export const firebaseAuth = firebase.auth();
